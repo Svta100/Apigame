@@ -1,0 +1,372 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
+@font-face {
+  font-family: 'LT Afficher Neue Bold';
+  src: url('../fonts/LTAfficherNeue-BoldCaption.otf') format('truetype');
+}
+@font-face {
+  font-family: 'LT Afficher Neue Bold 1';
+  src: url('../fonts/LTAfficherNeue-BoldDisplay.otf') format('truetype');
+}
+@font-face {
+  font-family: 'LT Afficher Neue Bold 2';
+  src: url('../fonts/LTAfficherNeue-BoldSubhead.otf') format('truetype');
+}
+@font-face {
+  font-family: 'LT Afficher Neue Bold 3';
+  src: url('../fonts/LTAfficherNeue-BoldSubhead.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'LT Afficher Neue Bold 4';
+  src: url('../fonts/LTAfficherNeue-BoldText.otf') format('truetype');
+}
+@font-face {
+  font-family: 'LT Afficher Neue';
+  src: url('../fonts/LTAfficherNeue-Caption.otf') format('truetype');
+}
+@font-face {
+  font-family: 'LT Afficher Neue 1';
+  src: url('../fonts/LTAfficherNeue-Display.otf') format('truetype');
+}
+@font-face {
+  font-family: 'LT Afficher Neue 2';
+  src: url('../fonts/LTAfficherNeue-MediumCaption.otf') format('truetype');
+}
+@font-face {
+  font-family: 'LT Afficher Neue 3';
+  src: url('../fonts/LTAfficherNeue-MediumDisplay.otf') format('truetype');
+}
+@font-face {
+  font-family: 'LT Afficher Neue 4';
+  src: url('../fonts/LTAfficherNeue-MediumSubhead.otf') format('truetype');
+}
+@font-face {
+  font-family: 'LT Afficher Neue 6';
+  src: url('../fonts/LTAfficherNeue-MediumSubhead.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'LT Afficher Neue 7';
+  src: url('../fonts/LTAfficherNeue-MediumText.otf') format('truetype');
+}
+@font-face {
+  font-family: 'LT Afficher Neue SB';
+  src: url('../fonts/LTAfficherNeue-SemBdCaption.otf') format('truetype');
+}
+@font-face {
+  font-family: 'LT Afficher Neue SB 1';
+  src: url('../fonts/LTAfficherNeue-SemBdDisplay.otf') format('truetype');
+}
+@font-face {
+  font-family: 'LT Afficher Neue SB 2';
+  src: url('../fonts/LTAfficherNeue-SemBdSubhead.otf') format('truetype');
+}
+@font-face {
+  font-family: 'LT Afficher Neue SB 3';
+  src: url('../fonts/LTAfficherNeue-MediumSubhead.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'LT Afficher Neue Medium 1';
+  src: url('../fonts/LTAfficherNeue-SemiBoldText.otf') format('truetype');
+}
+@font-face {
+  font-family: 'LT Afficher Neue Medium 2';
+  src: url('../fonts/LTAfficherNeue-SemiBoldText.otf') format('truetype');
+}
+@font-face {
+  font-family: 'LT Afficher Neue Medium 3';
+  src: url('../fonts/LTAfficherNeue-Subhead.otf') format('truetype');
+}
+@font-face {
+  font-family: 'LT Afficher Neue Medium 4';
+  src: url('../fonts/LTAfficherNeue-Text.otf') format('truetype');
+}
+body {
+  animation: fadeIn ease 3s;
+  -webkit-animation: fadeIn ease 3s;
+  -moz-animation: fadeIn ease 3s;
+  -o-animation: fadeIn ease 3s;
+  -ms-animation: fadeIn ease 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  transition: opacity 3s;
+}
+html, body{
+overflow-x: hidden;
+}
+
+@keyframes fadeIn{
+0% {
+  opacity:0;
+}
+100% {
+  opacity:1;
+}
+}
+
+@-moz-keyframes fadeIn {
+0% {
+  opacity:0;
+}
+100% {
+  opacity:1;
+}
+}
+
+@-webkit-keyframes fadeIn {
+0% {
+  opacity:0;
+}
+100% {
+  opacity:1;
+}
+}
+
+@-o-keyframes fadeIn {
+0% {
+  opacity:0;
+}
+100% {
+  opacity:1;
+}
+}
+
+@-ms-keyframes fadeIn {
+0% {
+  opacity:0;
+}
+100% {
+  opacity:1;
+}
+}
+@media (min-width: 576px){
+  .container, .container-sm {
+      max-width: 540px;
+  }
+}
+@media (min-width: 768px){
+  .container, .container-md, .container-sm {
+      max-width: 750px;
+  }
+}
+@media (min-width: 992px){
+  .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+      max-width: 970px;
+  }
+}
+@media (min-width: 1080px){
+  .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+      max-width: 1030px;
+  }
+}
+@media (min-width: 1100px){
+  .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+      max-width: 1100px;
+  }
+}
+@media (min-width: 1200px){
+  .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+      max-width: 1200px;
+  }
+}
+@media (min-width: 1400px){
+  .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+      max-width: 1320px;
+  }
+}
+@media (min-width: 1500px){
+  .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+      max-width: 1390px;
+  }
+}
+@media only screen and (min-width: 1600px) and (max-width: 1700px){
+  .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+      max-width: 1420px;
+  }
+}
+@media only screen and (min-width: 1701px) and (max-width: 1800px){
+  .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    max-width: 1510px;
+  }
+}
+@media only screen and (min-width: 1801px) and (max-width: 1920px){
+  .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    max-width: 1510px;
+  }
+}
+@media only screen and (min-width: 1921px) and (max-width: 2880px){
+  .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    max-width: 1510px;
+  } 
+}
+.bg-image {
+  object-fit: cover;
+}
+.bg-image {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.bg-image:not([class*=absolute]) {
+  position: absolute;
+}
+section {
+  padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
+}
+html {
+  scroll-behavior: smooth;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* ---------------------------------------header-------------------------------- */
+.navbar-expand-lg {
+  padding: 16px 0px;
+  height: 78px;
+}
+.header-scroll{
+  background-image: linear-gradient(to  right,  #a49aba, #2420a2);
+}
+.nav-link{
+  color: var(--Nuetral-Almost-Black, #fff);
+  font-family: "Inter Tight";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 160%;
+  letter-spacing: 0.56px;
+  text-transform: uppercase;
+}
+.navbar-expand-lg .navbar-nav{
+  gap: 32px;
+  margin-left: 32px;
+}
+.navbar-brand img{
+  max-width: 100%;
+  height: 42px;
+}
+.hero-banner{
+  background-image: linear-gradient(to top right,  #a49aba, #2420a2);
+}
+.hero-content h2{
+  color: var(--Nuetral-Almost-Black, #fff);
+  font-family: "Inter Tight";
+  font-size: 56px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 160%;
+  letter-spacing: 0.56px;
+}
+.hero-content p{
+  color: var(--Nuetral-Almost-Black, #fff);
+  font-family: "Inter Tight";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 129%;
+  letter-spacing: 0.56px;
+}
+.hero-content {
+  width: 450px;
+  max-width: 100%;
+  padding: 5rem 0;
+}
+.card{
+  padding: 20px 20px;
+  background-image: linear-gradient(to bottom right, #141216, #972776);
+  border: 0px;
+  margin-bottom: 24px;
+}
+.card img {
+    max-width: 100%;
+    width: 100%;
+    height: 370px;
+    object-fit: cover;
+}
+.card .moviename {
+  color: var(--Nuetral-Almost-Black, #fff);
+  font-family: "Inter Tight";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 160%;
+  letter-spacing: 0.56px;
+  text-transform: uppercase;
+  margin-top: 20px;
+}
+.details-apge .card{
+  background: transparent;
+  height: 500px;
+  position: relative;
+  border-radius: 40px;
+  overflow: hidden;
+}
+.details-apge .card img{
+  z-index: 1;
+  border-radius: 40px;
+  object-fit: cover;
+
+}
+.moviesdetails-title  p{
+  color: var(--Nuetral-Almost-Black, #fff);
+  font-family: "Inter Tight";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 160%;
+  letter-spacing: 0.56px;
+  text-transform:capitalize;
+  margin-bottom: 0px;
+}
+.moviesdetails-title  h3{
+  color: var(--Nuetral-Almost-Black, #fff);
+  font-family: "Inter Tight";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 160%;
+  letter-spacing: 0.56px;
+  text-transform: capitalize;
+}
+.moviesdetails-title{
+  background: #27222257;
+  padding: 24px 35px;
+  width: fit-content;
+  border-radius: 28px;
+  position: absolute;
+  bottom: 2rem;
+  z-index: 2;
+  left: 7rem;
+}
+ .page-details{
+   background-image: linear-gradient(to top right,  #a49aba, #2420a2);
+ }
+ .right-side-details h3{
+  color: var(--Nuetral-Almost-Black, #fff);
+  font-family: "Inter Tight";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 160%;
+  letter-spacing: 0.56px;
+  text-transform: capitalize;
+}
+.right-side-details p{
+  color: var(--Nuetral-Almost-Black, #fff);
+  font-family: "Inter Tight";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 160%;
+  letter-spacing: 0.56px;
+  text-transform:capitalize;
+  margin-bottom: 0px
+}
+.right-side-details{
+  padding: 0px 24px;
+}

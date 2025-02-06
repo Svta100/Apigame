@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon.svg">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.0/slick/slick.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.0/slick/slick-theme.css">
+    <link rel="stylesheet" href="lenzlibrary.css">
+    <link rel="stylesheet" href="lenzlibrary-responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  </head>
+  <header class="header-top fixed-top" id="header-top">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="logo.png" alt="" class="img-fluid">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">Movies</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Tv Show</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Suggest Me -></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <section class="hero-banner">
+      <div class="container">
+        <div class="col">
+          <div class="hero-content">
+            <h2>
+              Maileheroko
+            </h2>
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and 
+              typesetting industry. Lorem Ipsum has been the 
+              industry's standard dummy text ever since the 1500s
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="col">
+          <div id="filterDiv">
+            
+          </div>
+          <div class="row" id="movie-list">
+            
+          </div>
+        </div>
+      </div>
+  </section>
+  <footer class="footer">
+      
+  </footer>
+    <script src="dist/js/jquery.min.js"></script>
+    <script src="dist/js/bootstrap.bundle.min.js"></script>
+    <script src="dist/js/owl.carousel.js"></script>
+    <script src="dist/js/popper.min.js"></script>
+    <script src="dist/js/slick.js"></script>
+    <script src="dist/js/flickity.pkgd.min.js"></script>  
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".navbar-toggler").click(function () {
+                $(this).toggleClass("is-active");
+                $(".navbar-expand-lg").toggleClass("header-is-active");
+            });
+        });
+    </script>
+    <script>
+      window.addEventListener('scroll', function() {
+          var content = document.querySelector('header');
+          var scrollPosition = window.scrollY;
+          // Change background color when scrolling beyond a certain threshold
+          if (scrollPosition > 10) {
+              //.style.backgroundColor = '#1E1E1E'; // Change to red when scrolled past 100px
+              content.classList.add("header-scroll")
+          } else {
+             // content.style.backgroundColor = 'transparent'; // Change back to original color when not scrolled past 100px
+              content.classList.remove("header-scroll")
+          }
+      });
+    </script>
+     <script>
+      const apiKey = '963f486f';
+      const searchQuery = 'all';
+      let currentPage = 1;
+      let totalDisplayed = 0;
+      const maxMovies = 50;
+      let productDiv = document.querySelector('#movie-list')
+      let filterDiv = document.querySelector('#filterDiv')
+      
+      
+      function fetchMovies(page) {
+        if (totalDisplayed >= maxMovies) return;
+         let product =  fetch(`https://www.omdbapi.com/?s=${searchQuery}&page=${page}&apikey=${apiKey}`)
+         .then(response => response.json())
+         .then(data =>{
+          if(data.Response === 'True'){
+            data.Search.forEach(movie =>{
+              console.log(movie)
+              if(totalDisplayed < maxMovies){
+                productDiv.innerHTML+=`<div class="col-lg-3 col-md-6 col-12 ">
+                  <div class="card" onclick="viewDetails('${movie.imdbID}')">
+                    <img src="${movie.Poster}" alt="${movie.Title}" class="img-fluid">
+                    <h4 class="moviename movieTitle">${movie.Title}</h4>
+                    <h4 class="moviename">Year: ${movie.Year}</h4>
+                  </div>
+                </div>`;
+                totalDisplayed++;
+              }
+            });
+            if (totalDisplayed < maxMovies && page * 10 < data.totalResults) {
+              fetchMovies(page + 1);
+            }
+          }
+          else {
+            console.log('No more results found.');
+          }
+         })
+         .catch(error => console.error('Error:',error));
+      }
+      function viewDetails(imdbID) {
+        window.location.href = `details.html?imdbID=${imdbID}`;
+      }
+      fetchMovies(currentPage)
+    </script>
+    <script>
+
+    </script>
+  </body>
+  </html>
+  

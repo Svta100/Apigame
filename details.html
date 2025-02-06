@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon.svg">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.0/slick/slick.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.0/slick/slick-theme.css">
+    <link rel="stylesheet" href="lenzlibrary.css">
+    <link rel="stylesheet" href="lenzlibrary-responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  </head>
+  <header class="header-top fixed-top" id="header-top">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="logo.png" alt="" class="img-fluid">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">Movies</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Tv Show</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Suggest Me -></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="page-details">
+    <section class="details-apge">
+        <div class="container">
+           <div class="col" style="position: relative;">
+               <div class="card card-details" id="bannerCardImg">
+                 <img src="./img/banner-img.avif" alt="" class="img-fluid bg-image">
+               </div>
+               <div class="moviesdetails-title">
+                   <p>Hollywood  /  Movies</p>
+                   <div id='moviesName'>
+                    <h3>Avengers: Endgame</h3>
+                   </div>
+               </div>
+           </div>
+        </div>
+     </section>
+     <section class="section-details pt-0">
+       <div class="container">
+           <div class="col-lg-10 col-sm-12 col-12 col-md-11 m-auto">
+               <div class="row">
+                   <div class="col-lg-6 col-md-6 col-12 col-sm-12">
+                       <div class="left-side-img" id="moviePoster">
+                            <img src="./img/avengersendgame_lob_crd_05.jpg" alt="" class="img-fluid object-fit-cover">
+                       </div>
+                   </div>
+                   <div class="col-lg-6 col-md-6 col-12 col-sm-12">
+                       <div class="right-side-details">
+                           <h3 id="moviesLeftTitle">part of the journeny is the end</h3>
+                           <p id="plotdescrption">
+                               When Thor's evil brother, Loki (Tom Hiddleston), gains access to 
+                               the unlimited power of the energy cube called the Tesseract, Nick 
+                               Fury (Samuel L. Jackson), director of S.H.I.E.L.D., initiates a superhero 
+                               recruitment effort to defeat the unprecedented threat to Earth. Joining Fury's "dream team" 
+                               are Iron Man (Robert Downey Jr.), Captain America (Chris Evans), the Hulk (Mark Ruffalo), 
+                               Thor (Chris Hemsworth), the Black Widow (Scarlett Johansson) and Hawkeye (Jeremy Renner).
+                           </p>
+                           <div class="alldetails" id ="allDetails">
+
+                           </div>
+                           <a href="index.html">Back to Movies List</a>
+                       </div>
+                   </div>
+               </div>
+           </div>
+        </div>
+     </section>
+  </div>
+  <footer class="footer">
+    <div class="details-card d-none" id="movie-details">
+        <!-- Movie details will be displayed here -->
+      </div>
+  </footer>
+    <script src="dist/js/jquery.min.js"></script>
+    <script src="dist/js/bootstrap.bundle.min.js"></script>
+    <script src="dist/js/owl.carousel.js"></script>
+    <script src="dist/js/popper.min.js"></script>
+    <script src="dist/js/slick.js"></script>
+    <script src="dist/js/flickity.pkgd.min.js"></script>  
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".navbar-toggler").click(function () {
+                $(this).toggleClass("is-active");
+                $(".navbar-expand-lg").toggleClass("header-is-active");
+            });
+        });
+    </script>
+    <script>
+      window.addEventListener('scroll', function() {
+          var content = document.querySelector('header');
+          var scrollPosition = window.scrollY;
+          // Change background color when scrolling beyond a certain threshold
+          if (scrollPosition > 10) {
+              //.style.backgroundColor = '#1E1E1E'; // Change to red when scrolled past 100px
+              content.classList.add("header-scroll")
+          } else {
+             // content.style.backgroundColor = 'transparent'; // Change back to original color when not scrolled past 100px
+              content.classList.remove("header-scroll")
+          }
+      });
+    </script>
+    <script>
+        const apiKey = '963f486f';
+        const urlParams = new URLSearchParams(window.location.search);
+        const imdbID = new URLSearchParams(window.location.search).get('imdbID');
+        //const imdbID = urlParams.get('imdbID');
+         
+        let moviesTitle = document.getElementById('moviesLeftTitle');
+        let moviesPlot =document.getElementById('plotdescrption');
+        let moviesallDetails = document.getElementById('allDetails');
+        moviesTitle.innerHTML='';
+        moviesPlot.innerHTML='';
+        moviesallDetails.innerHTML='';
+
+        function fetchMovieDetails(imdbID) {
+          fetch(`https://www.omdbapi.com/?i=${imdbID}&apikey=${apiKey}`)
+            .then(response => response.json())
+            .then(movie => {
+              if (movie.Response === "True") {
+                console.log(movie.Response)
+                console.log(movie)
+                moviesTitle.innerHTML=movie.Title;
+                moviesPlot.innerHTML=movie.Plot;
+                moviesallDetails.innerHTML=`
+                  <p><strong>IMDB Rating:</strong> ${movie.imdbRating}/10</p>
+                  <p><strong>Year:</strong> ${movie.Year}</p>
+                  <p><strong>Released:</strong> ${movie.Released}</p>
+                  <p><strong>Genre:</strong> ${movie.Genre}</p>
+                  <p><strong>Country:</strong> ${movie.Country}</p>
+                  <p><strong>Director:</strong> ${movie.Director}</p>
+                  <p><strong>Actors:</strong> ${movie.Actors}</p>
+                  <p><strong>Genre:</strong> ${movie.Genre}</p>
+                  <p><strong>Writer:</strong> ${movie.Writer}</p>
+                  <p><strong>Awards:</strong> ${movie.Awards}</p>
+                `
+                document.getElementById('bannerCardImg').innerHTML = `
+                   <img src="${movie.Poster !== 'N/A' ? movie.Poster : 'https://via.placeholder.com/400x600'}" alt="${movie.Title}">
+                `;
+                document.getElementById('moviePoster').innerHTML = `
+                   <img src="${movie.Poster !== 'N/A' ? movie.Poster : 'https://via.placeholder.com/400x600'}" alt="${movie.Title}">
+                `;
+                document.getElementById('moviesName').innerHTML = `<h3>${movie.Title}</h3>`;
+
+              } else {
+                //document.getElementById('movie-details').innerHTML = '<p>Movie details not found!</p>';
+              }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    
+        if (imdbID) {
+          fetchMovieDetails(imdbID);
+        } else {
+         //let moviesNotselected =  document.getElementById('movie-details');
+          console.log('No movie selected!')
+        }
+        console.log('IMDb ID:', urlParams);  // This will show if the ID is passed correctly
+
+      </script>
+  </body>
+  </html>
+  
